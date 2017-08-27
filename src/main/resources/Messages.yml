@@ -31,7 +31,7 @@ Ban:
   - "&7Reason: &f%REASON%"
   - '&7Find out more: &bhttps://www.yourwebsite.com'
   - '&7'
-  - '&7Ban ID: &f#%RANDOMID%'
+  - '&7Ban ID: &f#%ID%'
   Notification:
   - "&f[WATCHDOG CHEAT DETECTION] &cA player has been removed"
   - "&cfrom your game for hacking or abuse"
@@ -44,7 +44,7 @@ Ipban:
   - "&7Reason: &f%REASON%"
   - '&7Find out more: &bhttps://www.yourwebsite.com'
   - '&7'
-  - '&7Ban ID: &f#%RANDOMID%'
+  - '&7Ban ID: &f#%ID%'
   Notification:
   - "&f[WATCHDOG CHEAT DETECTION] &cA player has been removed"
   - "&cfrom your game for hacking or abuse"
@@ -59,7 +59,7 @@ Tempban:
   - "&7Reason: &f%REASON%"
   - '&7Find out more: &bhttps://www.yourwebsite.com'
   - '&7'
-  - '&7Ban ID: &f#%RANDOMID%'
+  - '&7Ban ID: &f#%ID%'
   Notification:
   - "&f[WATCHDOG CHEAT DETECTION] &cA player has been removed"
   - "&cfrom your game for hacking or abuse"
@@ -73,7 +73,7 @@ Tempipban:
   - "&7Reason: &f%REASON%"
   - '&7Find out more: &bhttps://www.yourwebsite.com'
   - '&7'
-  - '&7Ban ID: &f#%RANDOMID%'
+  - '&7Ban ID: &f#%ID%'
   Notification:
   - "&f[WATCHDOG CHEAT DETECTION] &cA player has been removed"
   - "&cfrom your game for hacking or abuse"

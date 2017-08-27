@@ -23,7 +23,7 @@ Message:
   - "&7Reason: &fWATCHDOG CHEAT DETECTION &7&o[UR-216110]"
   - '&7Find out more: &bhttps://www.yourwebsite.com'
   - '&7'
-  - '&7Ban ID: &f#%RANDOMID%'
+  - '&7Ban ID: &f#%ID%'
 
 # You would use this time-layout for example like this: "/tempban Leoko #ExampleLayout Hacking in FFA"
 # Or with "/tempwarn Leoko #ExampleLayout Advertising" or with "/tempwarn Leoko #ExampleLayout No capslock please"
