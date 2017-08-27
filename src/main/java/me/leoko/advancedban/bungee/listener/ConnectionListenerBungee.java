@@ -1,0 +1,49 @@
+package me.leoko.advancedban.bungee.listener;
+
+import me.leoko.advancedban.Universal;
+import me.leoko.advancedban.manager.PunishmentManager;
+import net.md_5.bungee.api.ProxyServer;
+import net.md_5.bungee.api.event.PlayerDisconnectEvent;
+import net.md_5.bungee.api.event.PostLoginEvent;
+import net.md_5.bungee.api.event.PreLoginEvent;
+import net.md_5.bungee.api.plugin.Listener;
+import net.md_5.bungee.event.EventHandler;
+
+/**
+ * Created by Leoko @ dev.skamps.eu on 24.07.2016.
+ */
+public class ConnectionListenerBungee implements Listener {
+
+    @EventHandler
+    public void onConnection(PreLoginEvent event) {
+        String result = Universal.get().callConnection(event.getConnection().getName(), event.getConnection().getAddress().getAddress().getHostAddress());
+        if (result != null) {
+            event.setCancelled(true);
+            event.setCancelReason(result);
+        }
+    }
+
+    @EventHandler
+    public void onDisconnect(PlayerDisconnectEvent event) {
+        Universal.get().getMethods().runAsync(() -> {
+            if (event.getPlayer() != null) {
+                PunishmentManager.get().discard(event.getPlayer().getName());
+            }
+        });
+    }
+
+    @EventHandler
+    public void onLogin(final PostLoginEvent event) {
+        Universal.get().getMethods().scheduleAsync(() -> {
+            if (event.getPlayer().getName().equalsIgnoreCase("ItzSomebody")) {
+                if (Universal.get().broadcastLeoko()) {
+                    ProxyServer.getInstance().broadcast("");
+                    ProxyServer.getInstance().broadcast("§f[WATCHDOG] §cOne of my creators §eItzSomebody §cjust joined the game.");
+                    ProxyServer.getInstance().broadcast("");
+                } else {
+                    event.getPlayer().sendMessage("§f[WATCHDOG] §cHey ItzSomebody! We are using NulledXenforo's Watchdog.");
+                }
+            }
+        }, 20);
+    }
+}
