@@ -52,6 +52,6 @@ Fork of AdvancedBan (https://github.com/DevLeoko/AdvancedBan) to copy Hypixel's 
 + hypixelban.changeReason - /change-reason
 + hypixelban.banlist - /banlist
 + hypixelban.history - /history
-+ hypixelban.reload - /advancedban reload
-+ hypixelban.help - /advancedban help
++ hypixelban.reload - /hypixelban reload
++ hypixelban.help - /hypixelban help
 + hypixelban.systemprefs - /systemprefs

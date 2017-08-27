@@ -9,7 +9,11 @@ import me.leoko.advancedban.manager.TimeManager;
 
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.text.SimpleDateFormat;
+import java.util.Date;
 import java.util.List;
+
+import org.apache.commons.lang.RandomStringUtils;
 
 /**
  * Created by Leoko @ dev.skamps.eu on 30.05.2016.
@@ -69,6 +73,19 @@ public class Punishment {
 
     public int getId() {
         return id;
+    }
+    
+    public String getHexId() {
+    	return Integer.toHexString(id);
+    }
+    
+    public String randomHexId() {
+    	return RandomStringUtils.randomAlphanumeric(8).toUpperCase();
+    }
+    
+    public String getDate (long date) {
+    	SimpleDateFormat format = new SimpleDateFormat(mi.getString(mi.getConfig(), "DateFormat", "dd.MM.yyyy-HH:mm"));
+    	return format.format(new Date(date));
     }
 
     public void create(){
@@ -160,6 +177,9 @@ public class Punishment {
                 "REASON", getReason(),
                 "NAME", getName(),
                 "ID", String.valueOf(getId()),
+                "HEXID", getHexId(),
+                "RANDOMID", randomHexId(),
+                "DATE", getDate(start),
                 "COUNT", cWarnings + "");
 
         mi.notify("hypixelban." + getType().getName() + ".notify", notification);
@@ -197,6 +217,9 @@ public class Punishment {
                 "PREFIX", MessageManager.getMessage("General.Prefix"),
                 "DURATION", getDuration(false),
                 "REASON", getReason(),
+                "HEXID", getHexId(),
+                "RANDOMID", randomHexId(),
+                "DATE", getDate(start),
                 "COUNT", getType().getBasic() == PunishmentType.WARNING ? (PunishmentManager.get().getCurrentWarns(getUuid()) + 1) + "" : "0",
         		"ID", String.valueOf(getId()));
     }
